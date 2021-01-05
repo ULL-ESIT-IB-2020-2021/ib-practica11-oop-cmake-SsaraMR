@@ -1,8 +1,8 @@
-#include "fecha.h"
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
-#include<limits>
+#include <limits>
+#include "fecha.h"
 #include <math.h>
 
 using namespace std;
@@ -21,32 +21,6 @@ void Usage(int argc, char *argv[]){
     exit(EXIT_SUCCESS);
   }
 }
-
-class Date{
-private:
-    int day_, month_, year_;
-public: 
-    Date(int arg1, int arg2, int arg3){
-        day_ = arg1;
-        month_ = arg2;
-        year_ = arg3;
-    }
-    void setDay(int input){
-        day_ = input;
-    }
-    void setMonth(int input){
-        month_ = input;
-    }
-    void setYear(int input){
-        year_ = input;
-    }
-    void printYear(){
-        std::cout << day_ << '/' << month_ << '/' << year_ << std::endl;
-    }
-    void isBisiesto(){
-        !(year_ % 4) ? std::cout << "Es bisiesto\n" : std::cout << "No es bisiesto\n";
-    }
-};
  
 int main (int argc, char* argv[])
 { 
@@ -58,10 +32,13 @@ int main (int argc, char* argv[])
     string yearr{argv[3]};
     int year = stoi(yearr);
     string limitt{argv[4]};
-    int limit = stoi(limitt);
+    int limite = stoi(limitt);
     string kFileNme{argv[5]};
     ofstream fichero (kFileNme);
-    
+
     Date today {day,month,year};
-    fichero << today.printYear() << today.isBisiesto() << endl;
-    
+
+    today.printYear(kFileNme, limite);
+    today.isBisiesto(year);
+    cout << "Abre el aricivo de texto que se ha generado para ver el resultado de las fechas porteriores."<< endl;
+}
