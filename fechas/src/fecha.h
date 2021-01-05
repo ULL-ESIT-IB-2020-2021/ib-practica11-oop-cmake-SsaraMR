@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <stdexcept>
+#include <stdexcept> 
 #include <limits>
 #include <math.h>
 
@@ -9,14 +9,10 @@ const std::string kHelpText = "Este programa toma como parámetro por línea de 
 void Usage(int argc, char *argv[]);
 
 class Date{
-private:
+ private:
     int day_, month_, year_;
-public: 
-    Date(int arg1, int arg2, int arg3){
-        day_ = arg1;
-        month_ = arg2;
-        year_ = arg3;
-    }
+ public: 
+   Date(int arg1, int arg2, int arg3);
 void setDay(int input);
 void setMonth(int input);
 void setYear(int input);
